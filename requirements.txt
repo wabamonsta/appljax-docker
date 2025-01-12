@@ -4,3 +4,4 @@ requests
 sqlalchemy
 flask
 flask-mysqldb
+dotenv
