@@ -12,6 +12,8 @@ services:
     depends_on:
       - db
     command: python aggregator.py
+    networks:
+      - APPLJAX
 
   db:
     image: ${DB_PROVIDER}:latest
@@ -23,6 +25,8 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     volumes:
       - db_data:/var/lib/mysql
+    networks:
+      - APPLJAX
 
   grafana:
     image: grafana/grafana:latest
@@ -34,7 +38,15 @@ services:
       - grafana_data:/var/lib/grafana
     depends_on:
       - db
+    networks:
+      - APPLJAX
 
 volumes:
   db_data:
   grafana_data:
+
+networks:
+  APPLJAX:
+    driver: bridge
+
+name: APPLJAX

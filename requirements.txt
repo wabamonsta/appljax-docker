@@ -4,4 +4,4 @@ requests
 sqlalchemy
 flask
 flask-mysqldb
-dotenv
+python-dotenv==0.10.1
