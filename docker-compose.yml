@@ -4,7 +4,7 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - ../coinaggregator:/app
+      - ../appljax-aggregator:/app
       - .env:/app/.env
     env_file:
       - .env
@@ -28,7 +28,7 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     volumes:
       - db_data:/var/lib/mysql
-      - ../coinaggregator/migration.sql:/docker-entrypoint-initdb.d/migration.sql
+      - ../appljax-aggregator/migration.sql:/docker-entrypoint-initdb.d/migration.sql
     networks:
       - APPLJAX
 
